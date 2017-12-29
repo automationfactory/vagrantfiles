@@ -1,0 +1,35 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+# Rename this file as Vagrantfile to make use.
+# Vagrantfile to create multiple VMs. modify some of the value and check how it takes effect.
+# Author: Ganesh Palnitkar. 
+Vagrant.configure("2") do |config|
+
+  config.vm.define "cwork" do |cwork|
+    cwork.vm.box = "ubuntu/trusty64"
+    cwork.vm.hostname = "cwork"
+    cwork.vm.network "private_network", ip: "192.168.33.125"
+    cwork.vm.provider "virtualbox" do |vb|
+      vb.gui = true
+      vb.memory = "1024"
+    end
+  end
+
+  config.vm.define "cserver" do |cserver|
+    cserver.vm.box = "ubuntu/trusty64"
+    cserver.vm.hostname = "cserver"
+    cserver.vm.network "private_network", ip: "192.168.33.126"
+    cserver.vm.provider "virtualbox" do |vb|
+      vb.memory = "4096"
+    end
+  end
+
+  config.vm.define "node1" do |node1|
+    node1.vm.box = "ubuntu/trusty64"
+    node1.vm.hostname = "cnode1"
+    node1.vm.network "private_network", ip: "192.168.33.127"
+    node1.vm.provider "virtualbox" do |vb|
+      vb.memory = "512"
+    end
+  end
+end
