@@ -19,19 +19,19 @@ Vagrant.configure("2") do |config|
   config.ssh.username = "ubuntu"
 
   config.vm.provider :aws do |aws|
-    aws.access_key_id = "AKIAI6XW6LXEHAZ4MZHQ"
-    aws.secret_access_key = "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"
-    aws.keypair_name = "newkeys"
-    aws.ssh_private_key_path = "C:\Users\ganesh\.ssh\id_rsa"
+    aws.access_key_id = "<>"
+    aws.secret_access_key = "<>"
+    aws.keypair_name = "KEYNAME"
+ #   aws.ssh_private_key_path = "KEY_PATH"
 
-    aws.ssh_username = "ec2-user"
+ #   aws.ssh_username = "ec2-user"
     aws.region = "ap-south-1"
     aws.ami = "ami-46eea129"
     aws.instance_type = "t2.micro"
     aws.security_groups = [ "default" ]
 
     aws.tags = {
-      Name: "webserver"
+      Name: "<TAGNAME>"
     }
   end
 
